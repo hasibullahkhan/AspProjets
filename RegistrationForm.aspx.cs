@@ -17,7 +17,10 @@ namespace LoginApp
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source:(local);Initial Catalog=Aspplication;User ID=sa;Password=dell");
+            SqlConnection con = new SqlConnection(@"Data Source=localhost;Initial Catalog=Login;Persist Security Info=True;User ID=sa;Password=dell");
+
+
+        
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("INSERT INTO tbllogin VALUES(@Name, @Passward, @City, @Gender, @Mail)", con);
@@ -29,8 +32,9 @@ namespace LoginApp
                 cmd.ExecuteNonQuery();
                 TextBox1.Text = "";
                 TextBox2.Text = "";
-                DropDownList1.SelectedValue = "";
-                RadioButton1.SelectedValue = "";
+                TextBox3.Text = "";
+                DropDownList1.SelectedValue = "Select";
+   
                 TextBox4.Text = "";
                 TextBox4.Focus();
 
